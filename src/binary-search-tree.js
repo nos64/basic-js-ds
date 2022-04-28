@@ -55,18 +55,22 @@ class Node {
 
 class BinarySearchTree {
   constructor() {
-    this.root = null;
+    this.source = null;
+    
   }
 
   root() {
-    return this.root;
+    
+    let source = null;
+    if (!this.source) return null;
+    else return this.source;
 
     // throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 
   add(data) {
-    this.root = addNode(this.root, data);
+    this.source = addNode(this.source, data);
 
     function addNode(node, data) {
       if (!node) return new Node(data);
@@ -85,16 +89,13 @@ class BinarySearchTree {
 
   has(data) {
 
-    return searchNode(this.root, data);
+    return searchNode(this.source, data);
 
     function searchNode(node, data) {
       if (!node) return false;
 
       if (node.data === data) return true;
 
-      // return data < node.data ?
-      // searchNode(node.left, data) :
-      // searchNode(node.right, data);
       if (data < node.data) return searchNode(node.left, data);
       else return searchNode(node.right, data);
     }
@@ -104,14 +105,22 @@ class BinarySearchTree {
   }
 
   find(data) {
+    return searchData(this.source, data);
 
+    function searchData(node, data) {
+      if (!node) return null;
 
+      if (node.data === data) return node.data;
+
+      if (data < node.data) return searchData(node.left, data);
+      else return searchData(node.right, data);
+    }
     // throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 
   remove(data) {
-    this.root = removeNode(this.root, data);
+    this.source = removeNode(this.source, data);
 
     function removeNode(node, data) {
       if (!node) return null;
@@ -154,9 +163,9 @@ class BinarySearchTree {
   }
 
   min() {
-    if (!this.root) return;
+    if (!this.source) return;
 
-    let node = this.root;
+    let node = this.source;
     while (node.left) node = node.left;
 
     return node.data;
@@ -166,9 +175,9 @@ class BinarySearchTree {
   }
 
   max() {
-    if (!this.root) return;
+    if (!this.source) return;
 
-    let node = this.root;
+    let node = this.source;
     while (node.right) node = node.right;
 
     return node.data;
