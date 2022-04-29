@@ -110,13 +110,12 @@ class BinarySearchTree {
     function searchData(node, data) {
       if (!node) return null;
 
-      if (node.data === data) return node.data;
+      if (node.data === data) return node;
 
       if (data < node.data) return searchData(node.left, data);
-      else return searchData(node.right, data);
+      else if(data > node.data) return searchData(node.right, data);
+    
     }
-    // throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
   }
 
   remove(data) {
