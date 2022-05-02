@@ -30,15 +30,15 @@ const { NotImplementedError } = require('../extensions/index.js');
 }
 
 function removeKFromList(l, k) {
-  // let list = new ListNode();
-	// let temp = list;
-	// list.next = l;
-	// while (temp.next) {
-  //   if (temp.next.value === k) temp.next = temp.next.next
-  //   else temp = temp.next
+  let list = new ListNode();
+	let newList = list;
+	list.next = l;
+	while (newList.next) {
+    if (newList.next.value === k) newList.next = newList.next.next
+    else newList = newList.next;
 
-	// }
-	// return list.next;
+	}
+	return list.next;
 
 }
 
